@@ -25,12 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${spaceMono.variable} ${lato.variable}`}
-      >
-        {children}
-      </body>
+    <html lang="en" className={`${spaceMono.variable} ${lato.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
