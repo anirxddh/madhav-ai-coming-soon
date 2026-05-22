@@ -65,6 +65,9 @@ button{
 
 .coming-soon-dot{
   animation: slowPulse 2s ease-in-out infinite;
+  box-shadow:
+    0 0 0 1px rgba(47, 125, 50, 0.14),
+    0 0 10px rgba(47, 125, 50, 0.18);
 }
 
 @keyframes slowPulse{

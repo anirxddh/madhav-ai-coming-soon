@@ -27,7 +27,7 @@ export default function useHeroReveal({
       (card): card is HTMLElement => card !== null,
     );
     const copyItems = [subtextRef.current, ctaRef.current, launchRef.current].filter(
-      (item): item is HTMLElement => item !== null,
+      (item): item is HTMLParagraphElement | HTMLAnchorElement => item !== null,
     );
 
     const timeline = gsap.timeline({
