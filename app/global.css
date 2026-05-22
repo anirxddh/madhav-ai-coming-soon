@@ -1,0 +1,12 @@
+:root{
+  --font-heading: var(--font-space);
+  --font-body: var(--font-lato);
+}
+
+body{
+  font-family: var(--font-body);
+}
+
+h1,h2,h3,h4{
+  font-family: var(--font-heading);
+}
