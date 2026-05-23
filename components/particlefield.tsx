@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import type { Engine, ISourceOptions } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
@@ -78,33 +79,48 @@ async function particlesInit(engine: Engine) {
   await loadSlim(engine);
 }
 
-export default function ParticleField() {
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
-
-  const mobileOptions: ISourceOptions = {
-    ...options,
-    particles: {
-      ...options.particles,
-      number: {
-        density: {
-          enable: true,
-          area: 1200,
-        },
-        value: 90,
+const mobileOptions: ISourceOptions = {
+  ...options,
+  particles: {
+    ...options.particles,
+    number: {
+      density: {
+        enable: true,
+        area: 1200,
       },
-      opacity: {
-        value: 0.1,
-      },
+      value: 90,
     },
-  };
+    opacity: {
+      value: 0.1,
+    },
+  },
+};
+
+export default function ParticleField() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const applyMatch = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    applyMatch();
+    mediaQuery.addEventListener("change", applyMatch);
+
+    return () => {
+      mediaQuery.removeEventListener("change", applyMatch);
+    };
+  }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[1] overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-1 overflow-hidden">
       <Particles
         id="particle-field"
         init={particlesInit}
         options={isMobile ? mobileOptions : options}
-        className="fixed inset-0 z-[1] h-full w-full"
+        className="fixed inset-0 z-1 h-full w-full"
       />
     </div>
   );

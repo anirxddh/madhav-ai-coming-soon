@@ -3,7 +3,7 @@ export default function EditorialGrid() {
     <>
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-5 z-0 sm:inset-10 lg:inset-16"
+        className="pointer-events-none fixed inset-5 z-0 transform-gpu sm:inset-10 lg:inset-16"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(26,26,26,0.014) 1px, transparent 1px),
@@ -15,7 +15,7 @@ export default function EditorialGrid() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-10 z-0 hidden md:block lg:hidden"
+        className="pointer-events-none fixed inset-10 z-0 hidden transform-gpu md:block lg:hidden"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(26,26,26,0.05) 1px, transparent 1px)",
@@ -25,7 +25,7 @@ export default function EditorialGrid() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed inset-16 z-0 hidden lg:block"
+        className="pointer-events-none fixed inset-16 z-0 hidden transform-gpu lg:block"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(26,26,26,0.055) 1px, transparent 1px)",

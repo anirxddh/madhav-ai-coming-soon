@@ -4,9 +4,27 @@ import { type MutableRefObject, type RefObject } from "react";
 import { BookOpen, ShieldCheck, Sparkles } from "lucide-react";
 
 import FeatureStrip from "@/components/FeatureStrip";
-import StatueHero from "@/components/StatueHero";
+import StatueHero from "@/components/statuehero";
 
 const WAITLIST_URL = "https://tally.so/r/obkAPN";
+
+const mobileFeatures = [
+  {
+    icon: BookOpen,
+    title: "Built for lawyers & firms.",
+    description: "Precision first search.",
+  },
+  {
+    icon: Sparkles,
+    title: "Context-powered intelligence.",
+    description: "It gives you what you need.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Trusted. Transparent. Reliable.",
+    description: "Built with accuracy in mind.",
+  },
+];
 
 type HeroProps = {
   headlineRef: RefObject<HTMLHeadingElement | null>;
@@ -25,28 +43,10 @@ export default function Hero({
   featureCardRefs,
   statueRef,
 }: HeroProps) {
-  const mobileFeatures = [
-    {
-      icon: BookOpen,
-      title: "Built for lawyers & firms.",
-      description: "Precision first search.",
-    },
-    {
-      icon: Sparkles,
-      title: "Context-powered intelligence.",
-      description: "It gives you what you need.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Trusted. Transparent. Reliable.",
-      description: "Built with accuracy in mind.",
-    },
-  ];
-
   return (
-    <section className="mx-auto w-full max-w-[1440px] px-5 sm:px-10 lg:px-16">
+    <section aria-label="Madhav.ai hero" className="mx-auto w-full max-w-360 px-5 sm:px-10 lg:px-16">
       <div className="md:hidden">
-        <header className="h-[48px]" />
+        <header className="h-12" />
 
         <div className="relative isolate overflow-hidden pb-10 pt-3">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
@@ -55,7 +55,7 @@ export default function Hero({
 
           <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-6">
             <div className="col-span-2 inline-flex w-fit items-center border border-[#c4c7c7] bg-[#f2f0ed] px-3 py-2 font-(family-name:--font-heading) text-[12px] uppercase tracking-[0.14em] text-[#5e5e5c] opacity-80">
-              MADHAV.AI · “यतो धर्मस्ततो जयः”
+              MADHAV.AI · यतो धर्मस्ततो जयः
             </div>
 
             <h1 className="col-span-2 max-w-full text-left font-(family-name:--font-heading) text-[clamp(40px,10vw,56px)] font-bold uppercase leading-[0.92] tracking-[-0.04em] text-[#1b1c1c]">
@@ -70,7 +70,8 @@ export default function Hero({
               href={WAITLIST_URL}
               target="_blank"
               rel="noreferrer"
-              className="waitlist-cursor group col-span-2 flex h-[60px] w-full items-center justify-center gap-3 border border-[#1b1c1c] bg-[#f2f0ed] font-(family-name:--font-heading) text-xs uppercase tracking-[0.28em] text-[#1b1c1c] transition-colors duration-250 hover:bg-[#1b1c1c] active:bg-[#1b1c1c]"
+              aria-label="Join the Madhav.ai waitlist"
+              className="waitlist-cursor group col-span-2 flex h-15 w-full items-center justify-center gap-3 border border-[#1b1c1c] bg-[#f2f0ed] font-(family-name:--font-heading) text-xs uppercase tracking-[0.28em] text-[#1b1c1c] transition-colors duration-250 hover:bg-[#1b1c1c] active:bg-[#1b1c1c]"
             >
               <span className="transition-colors duration-250 group-hover:text-[#f2f0ed] group-active:text-[#f2f0ed]">
                 Join waitlist
@@ -99,7 +100,7 @@ export default function Hero({
                       <feature.icon className="h-4 w-4" strokeWidth={1.5} />
                     </span>
                     <div className="min-w-0 text-left">
-                      <h3 className="font-(family-name:--font-heading) text-[12px] uppercase leading-[1.1] tracking-[0.1em] text-[#1b1c1c]">
+                      <h3 className="font-(family-name:--font-heading) text-[12px] uppercase leading-[1.1] tracking-widest text-[#1b1c1c]">
                         {feature.title}
                       </h3>
                       <p className="mt-2 text-[15px] leading-6 text-[#5e5e5c]">
@@ -129,13 +130,13 @@ export default function Hero({
               </p>
               <h1
                 ref={headlineRef}
-                className="max-w-[600px] font-(family-name:--font-heading) text-4xl font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[#1b1c1c] sm:text-6xl lg:text-7xl"
+                className="max-w-150 font-(family-name:--font-heading) text-4xl font-bold uppercase leading-[0.95] tracking-[-0.04em] text-[#1b1c1c] sm:text-6xl lg:text-7xl"
               >
                 India&apos;s first native legal AI platform
               </h1>
               <p
                 ref={subtextRef}
-                className="max-w-[420px] text-[17px] leading-7 text-[#444748]"
+                className="max-w-105 text-[17px] leading-7 text-[#444748]"
               >
                 Legal intelligence built with context in mind.
               </p>
@@ -147,6 +148,7 @@ export default function Hero({
                 href={WAITLIST_URL}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Join the Madhav.ai waitlist"
                 className="waitlist-cursor group inline-flex items-center gap-3 border border-[#1b1c1c] bg-[#f2f0ed] px-8 py-4 font-(family-name:--font-heading) text-xs uppercase tracking-[0.28em] text-[#1b1c1c] transition-colors duration-250 hover:bg-[#1b1c1c]"
               >
                 <span className="text-[#1b1c1c] transition-colors duration-250 group-hover:text-[#f2f0ed]">
@@ -170,13 +172,13 @@ export default function Hero({
             </div>
 
             <div className="pt-12 md:pt-16">
-              <p className="font-[family:var(--font-heading)] text-xs uppercase tracking-[0.24em] text-[#1b1c1c]">
+              <p className="font-(--font-heading) text-xs uppercase tracking-[0.24em] text-[#1b1c1c]">
                 ©2026 • MADHAV AI • यतो धर्मस्ततो जयः
               </p>
             </div>
           </div>
 
-          <div className="relative min-h-[24rem] sm:min-h-[30rem] md:col-span-6 md:min-h-screen">
+          <div className="relative min-h-96 sm:min-h-120 md:col-span-6 md:min-h-screen">
             <StatueHero imageRef={statueRef} />
           </div>
         </div>

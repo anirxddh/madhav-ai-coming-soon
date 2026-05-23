@@ -47,7 +47,7 @@ export default function StatueHero({ imageRef }: StatueHeroProps) {
         >
           <Image
             src="/statue.png"
-            alt="Lady Justice statue"
+            alt="Lady Justice statue representing legal intelligence"
             width={650}
             height={1040}
             priority
