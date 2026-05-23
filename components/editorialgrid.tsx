@@ -6,8 +6,8 @@ export default function EditorialGrid() {
         className="pointer-events-none fixed inset-5 z-0 sm:inset-10 lg:inset-16"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(26,26,26,0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(26,26,26,0.04) 1px, transparent 1px)
+            linear-gradient(to right, rgba(26,26,26,0.014) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(26,26,26,0.014) 1px, transparent 1px)
           `,
           backgroundPosition: "top left",
           backgroundSize: "calc(100% / 2) 100%, 100% 168px",

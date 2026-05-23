@@ -79,12 +79,31 @@ async function particlesInit(engine: Engine) {
 }
 
 export default function ParticleField() {
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
+  const mobileOptions: ISourceOptions = {
+    ...options,
+    particles: {
+      ...options.particles,
+      number: {
+        density: {
+          enable: true,
+          area: 1200,
+        },
+        value: 90,
+      },
+      opacity: {
+        value: 0.1,
+      },
+    },
+  };
+
   return (
     <div className="pointer-events-none fixed inset-0 z-[1] overflow-hidden">
       <Particles
         id="particle-field"
         init={particlesInit}
-        options={options}
+        options={isMobile ? mobileOptions : options}
         className="fixed inset-0 z-[1] h-full w-full"
       />
     </div>

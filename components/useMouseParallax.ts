@@ -16,11 +16,11 @@ export default function useMouseParallax(): Offset {
   useEffect(() => {
     let frame = 0;
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const updateOffset = (clientX: number, clientY: number) => {
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
-      const mouseX = event.clientX - centerX;
-      const mouseY = event.clientY - centerY;
+      const mouseX = clientX - centerX;
+      const mouseY = clientY - centerY;
 
       const nextOffset = {
         x: clamp(mouseX * 0.008, -18, 18),
@@ -33,11 +33,32 @@ export default function useMouseParallax(): Offset {
       });
     };
 
+    const handlePointerMove = (event: PointerEvent) => {
+      updateOffset(event.clientX, event.clientY);
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      updateOffset(event.clientX, event.clientY);
+    };
+
+    const resetOffset = () => {
+      cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        setOffset({ x: 0, y: 0 });
+      });
+    };
+
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mouseleave", resetOffset);
+    window.addEventListener("blur", resetOffset);
 
     return () => {
       cancelAnimationFrame(frame);
+      window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", resetOffset);
+      window.removeEventListener("blur", resetOffset);
     };
   }, []);
 
