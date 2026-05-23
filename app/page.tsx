@@ -2,8 +2,8 @@
 
 import { useRef } from "react";
 
-import ConstructionMarkers from "@/components/ConstructionMarkers";
-import EditorialGrid from "@/components/EditorialGrid";
+import ConstructionMarkers from "@/components/constructionmarkers";
+import EditorialGrid from "@/components/editorialgrid";
 import Hero from "@/components/Hero";
 import ParticleField from "@/components/particlefield";
 import useHeroReveal from "@/components/useHeroReveal";

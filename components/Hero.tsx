@@ -3,7 +3,7 @@
 import { type MutableRefObject, type RefObject } from "react";
 import { BookOpen, ShieldCheck, Sparkles } from "lucide-react";
 
-import FeatureStrip from "@/components/FeatureStrip";
+import FeatureStrip from "@/components/featurestrip";
 import StatueHero from "@/components/statuehero";
 
 const WAITLIST_URL = "https://tally.so/r/obkAPN";
