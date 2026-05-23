@@ -10,10 +10,11 @@
     "dev": "next dev --hostname 0.0.0.0",
     "start": "next start",
     "lint": "eslint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf:build": "cross-env OPENNEXT_CLOUDFLARE=1 opennextjs-cloudflare build",
+    "cf:preview": "cross-env OPENNEXT_CLOUDFLARE=1 opennextjs-cloudflare preview",
+    "cf:deploy": "cross-env OPENNEXT_CLOUDFLARE=1 opennextjs-cloudflare deploy",
+    "cf:upload": "cross-env OPENNEXT_CLOUDFLARE=1 opennextjs-cloudflare upload",
+    "cf:typegen": "cross-env OPENNEXT_CLOUDFLARE=1 wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.11",
@@ -32,10 +33,14 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
     "typescript": "^5",
     "wrangler": "^4.94.0"
+  },
+  "volta": {
+    "node": "22.13.1"
   }
 }

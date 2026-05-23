@@ -163,7 +163,7 @@ export default function Hero({
                 className="inline-flex items-center gap-3 font-(family-name:--font-heading) text-xs uppercase tracking-[0.24em] text-[#5e5e5c]"
               >
                 <span className="coming-soon-dot h-2.5 w-2.5 rounded-full bg-[#2f7d32]" />
-                <span>Coming soon</span>
+                <span>Coming soon!</span>
               </div>
             </div>
 
